@@ -1,0 +1,16 @@
+# Binaries
+notes-app
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Data
+notes.json
+
+# Go
+go.sum
+
+# OS
+.DS_Store
+Thumbs.db

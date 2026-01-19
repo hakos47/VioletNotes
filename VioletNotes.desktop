@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=VioletNotes
+Comment=Modern Note Taking App (Go + Fyne)
+Exec=/workspace/service/programs/notes/run.sh
+Icon=/workspace/service/programs/notes/violet-notes.svg
+Terminal=false
+Type=Application
+Categories=Utility;TextEditor;Office;
+Keywords=notes;editor;fyne;go;
+StartupNotify=false

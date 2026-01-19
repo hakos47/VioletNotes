@@ -134,15 +134,28 @@ func (a *App) buildUI() {
 	split := container.NewHSplit(leftPane, container.NewPadded(rightPane))
 	split.SetOffset(0.3)
 
-	// Background Gradient
+	// Background Gradient (Obsidian to Deep Violet)
 	gradient := canvas.NewLinearGradient(
-		color.RGBA{R: 45, G: 0, B: 60, A: 255}, // Deep Purple
-		color.RGBA{R: 0, G: 0, B: 0, A: 255},   // Black
+		color.RGBA{R: 10, G: 10, B: 10, A: 255}, // Obsidian Black
+		color.RGBA{R: 45, G: 0, B: 60, A: 255},  // Deep Amethyst/Violet
 		0,
 	)
 
-	// Final Layout
-	a.window.SetContent(container.NewMax(gradient, split))
+	// Sidebar Glass Background (Semi-transparent dark surface)
+	sidebarGlass := canvas.NewRectangle(color.RGBA{R: 20, G: 20, B: 25, A: 150})
+	
+	// Recompose Layout with layers
+	finalLayout := container.NewMax(
+		gradient,
+		container.NewHSplit(
+			container.NewMax(sidebarGlass, leftPane),
+			container.NewPadded(rightPane),
+		),
+	)
+	finalLayout.Objects[1].(*container.Split).SetOffset(0.3)
+
+	a.window.SetContent(finalLayout)
+	a.window.ShowAndRun()
 }
 
 // Logic Methods
